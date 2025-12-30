@@ -1,0 +1,31 @@
+<div class="dashboard-container">
+    <header class="dashboard-header">
+        <div class="header-content">
+            <h1 class="dashboard-title gradient-text-primary">
+                Real-Time Sensor Dashboard
+            </h1>
+            <p class="dashboard-subtitle">
+                Monitor sensor data streams with intelligent threshold alerts
+            </p>
+        </div>
+    </header>
+
+    <div class="filter-section">
+        <app-filter-controls (filterChange)="onFilterChange($event)"></app-filter-controls>
+    </div>
+
+    <div class="dashboard-grid">
+        <!-- Sensor Charts -->
+        <div class="sensors-section">
+            <div class="sensor-grid">
+                <app-sensor-chart *ngFor="let sensor of filteredSensors" [sensorId]="sensor.id"></app-sensor-chart>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <app-alert-panel></app-alert-panel>
+            <app-rule-config></app-rule-config>
+        </aside>
+    </div>
+</div>

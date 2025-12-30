@@ -1,0 +1,40 @@
+<div class="alert-panel glass-card">
+    <div class="panel-header">
+        <h3>Recent Alerts</h3>
+        <div class="header-actions">
+            <span class="badge" *ngIf="unacknowledgedCount > 0">
+                {{ unacknowledgedCount }} new
+            </span>
+            <button class="btn-text" (click)="acknowledgeAll()" *ngIf="unacknowledgedCount > 0">
+                Acknowledge All
+            </button>
+            <button class="btn-text" (click)="clearAll()" *ngIf="alerts.length > 0">
+                Clear
+            </button>
+        </div>
+    </div>
+
+    <div class="alerts-list">
+        <div *ngFor="let alert of alerts" class="alert-item slide-in-right" [class]="getSeverityClass(alert.severity)"
+            [class.acknowledged]="alert.acknowledged">
+            <div class="alert-icon">
+                {{ getSeverityIcon(alert.severity) }}
+            </div>
+            <div class="alert-content">
+                <div class="alert-header">
+                    <span class="alert-rule">{{ alert.ruleName }}</span>
+                    <span class="alert-time">{{ formatTime(alert.timestamp) }}</span>
+                </div>
+                <div class="alert-message">{{ alert.message }}</div>
+            </div>
+            <button class="btn-acknowledge" (click)="acknowledgeAlert(alert.id)" *ngIf="!alert.acknowledged">
+                ✓
+            </button>
+        </div>
+
+        <div class="empty-state" *ngIf="alerts.length === 0">
+            <p>No alerts yet</p>
+            <span class="empty-icon">🔔</span>
+        </div>
+    </div>
+</div>

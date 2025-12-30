@@ -1,0 +1,92 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.dashboard-container {
+    min-height: 100vh;
+    padding: $spacing-xl;
+}
+
+.dashboard-header {
+    margin-bottom: $spacing-xl;
+    text-align: center;
+
+    .header-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .dashboard-title {
+        font-size: $font-size-2xl;
+        font-weight: 700;
+        margin-bottom: $spacing-sm;
+
+        @include responsive(md) {
+            font-size: 48px;
+        }
+    }
+
+    .dashboard-subtitle {
+        color: $text-secondary;
+        font-size: $font-size-lg;
+        margin: 0;
+    }
+}
+
+.filter-section {
+    margin-bottom: $spacing-xl;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+
+    @include responsive(lg) {
+        grid-template-columns: 1fr 400px;
+    }
+}
+
+.sensors-section {
+    .sensor-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+
+        @include responsive(md) {
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        }
+    }
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    >* {
+        min-height: 400px;
+    }
+}
+
+// Responsive adjustments
+@media (max-width: $breakpoint-lg) {
+    .dashboard-container {
+        padding: $spacing-md;
+    }
+
+    .dashboard-header {
+        margin-bottom: $spacing-lg;
+
+        .dashboard-title {
+            font-size: $font-size-xl;
+        }
+
+        .dashboard-subtitle {
+            font-size: $font-size-base;
+        }
+    }
+
+    .dashboard-grid {
+        gap: $spacing-lg;
+    }
+}

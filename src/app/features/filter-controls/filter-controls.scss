@@ -1,0 +1,48 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.filter-controls {
+    padding: $spacing-md $spacing-lg;
+    display: flex;
+    gap: $spacing-lg;
+    align-items: flex-end;
+}
+
+.filter-group {
+    flex: 1;
+
+    label {
+        display: block;
+        margin-bottom: $spacing-xs;
+        font-size: $font-size-sm;
+        font-weight: 500;
+        color: $text-secondary;
+    }
+
+    .filter-select {
+        width: 100%;
+        padding: $spacing-sm $spacing-md;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid $border-color;
+        border-radius: $radius-md;
+        color: $text-primary;
+        font-size: $font-size-sm;
+        transition: $transition-smooth;
+
+        &:hover {
+            border-color: $border-color-hover;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+    }
+}
+
+@include responsive(md) {
+    .filter-controls {
+        gap: $spacing-xl;
+    }
+}

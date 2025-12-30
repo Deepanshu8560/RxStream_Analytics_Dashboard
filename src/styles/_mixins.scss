@@ -1,0 +1,123 @@
+@use 'variables' as *;
+
+// Glassmorphism effect
+@mixin glass-card {
+    background: $bg-card;
+    backdrop-filter: blur(10px);
+    border: 1px solid $border-color;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+    transition: $transition-smooth;
+
+    &:hover {
+        background: $bg-card-hover;
+        border-color: $border-color-hover;
+        box-shadow: $shadow-xl;
+    }
+}
+
+// Gradient text
+@mixin gradient-text($gradient) {
+    background: $gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+// Pulsing animation
+@mixin pulse-animation($color) {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.5;
+        }
+    }
+}
+
+// Slide in animation
+@mixin slide-in-right {
+    animation: slideInRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @keyframes slideInRight {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+}
+
+// Fade in animation
+@mixin fade-in {
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+// Responsive breakpoints
+@mixin responsive($breakpoint) {
+    @if $breakpoint ==sm {
+        @media (min-width: $breakpoint-sm) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==md {
+        @media (min-width: $breakpoint-md) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==lg {
+        @media (min-width: $breakpoint-lg) {
+            @content;
+        }
+    }
+
+    @else if $breakpoint ==xl {
+        @media (min-width: $breakpoint-xl) {
+            @content;
+        }
+    }
+}
+
+// Scrollbar styling
+@mixin custom-scrollbar {
+    &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bg-darker;
+        border-radius: $radius-full;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: $radius-full;
+
+        &:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    }
+}

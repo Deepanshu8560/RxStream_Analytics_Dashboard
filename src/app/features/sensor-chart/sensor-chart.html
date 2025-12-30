@@ -1,0 +1,33 @@
+<div class="sensor-chart-container glass-card">
+  <div class="chart-header">
+    <div class="sensor-info">
+      <h3 class="sensor-name">{{ sensor?.name }}</h3>
+      <span class="sensor-type" [class.active]="isActive">
+        {{ sensor?.type | titlecase }}
+      </span>
+    </div>
+    <div class="current-value">
+      <span class="value">{{ currentValue | number:'1.2-2' }}</span>
+      <span class="unit">{{ sensor?.unit }}</span>
+    </div>
+  </div>
+
+  <div class="chart-wrapper">
+    <canvas #chartCanvas></canvas>
+  </div>
+
+  <div class="chart-stats">
+    <div class="stat">
+      <span class="stat-label">Min</span>
+      <span class="stat-value">{{ minValue | number:'1.2-2' }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Avg</span>
+      <span class="stat-value">{{ avgValue | number:'1.2-2' }}</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Max</span>
+      <span class="stat-value">{{ maxValue | number:'1.2-2' }}</span>
+    </div>
+  </div>
+</div>

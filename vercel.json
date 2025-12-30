@@ -1,0 +1,13 @@
+{
+    "buildCommand": "npm run build",
+    "outputDirectory": "dist/sensor-dashboard/browser",
+    "devCommand": "npm run start",
+    "installCommand": "npm install",
+    "framework": null,
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}

@@ -1,0 +1,110 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.sensor-chart-container {
+    padding: $spacing-lg;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    @include fade-in;
+
+    &:hover {
+        transform: translateY(-2px);
+    }
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: $spacing-md;
+}
+
+.sensor-info {
+    .sensor-name {
+        font-size: $font-size-lg;
+        font-weight: 600;
+        margin: 0 0 $spacing-xs 0;
+        color: $text-primary;
+    }
+
+    .sensor-type {
+        display: inline-block;
+        padding: $spacing-xs $spacing-sm;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid $border-color;
+        border-radius: $radius-full;
+        font-size: $font-size-sm;
+        color: $text-secondary;
+        transition: $transition-smooth;
+
+        &.active {
+            background: rgba(16, 185, 129, 0.1);
+            border-color: $accent-success-solid;
+            color: $accent-success-solid;
+        }
+    }
+}
+
+.current-value {
+    text-align: right;
+
+    .value {
+        display: block;
+        font-size: $font-size-2xl;
+        font-weight: 700;
+        @include gradient-text($accent-primary);
+    }
+
+    .unit {
+        display: block;
+        font-size: $font-size-sm;
+        color: $text-secondary;
+        margin-top: $spacing-xs;
+    }
+}
+
+.chart-wrapper {
+    flex: 1;
+    position: relative;
+    min-height: 250px;
+    margin-bottom: $spacing-md;
+
+    canvas {
+        max-height: 300px;
+    }
+}
+
+.chart-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $spacing-md;
+    padding-top: $spacing-md;
+    border-top: 1px solid $border-color;
+}
+
+.stat {
+    text-align: center;
+
+    .stat-label {
+        display: block;
+        font-size: $font-size-sm;
+        color: $text-muted;
+        margin-bottom: $spacing-xs;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .stat-value {
+        display: block;
+        font-size: $font-size-lg;
+        font-weight: 600;
+        color: $text-primary;
+    }
+}
+
+@include responsive(md) {
+    .chart-wrapper {
+        min-height: 300px;
+    }
+}

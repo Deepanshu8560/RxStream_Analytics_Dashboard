@@ -1,0 +1,209 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.rule-config {
+    padding: $spacing-lg;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $spacing-md;
+    padding-bottom: $spacing-md;
+    border-bottom: 1px solid $border-color;
+
+    h3 {
+        margin: 0;
+        font-size: $font-size-lg;
+        font-weight: 600;
+    }
+}
+
+.btn-primary {
+    padding: $spacing-sm $spacing-md;
+    background: $accent-primary;
+    color: white;
+    border-radius: $radius-md;
+    font-weight: 500;
+    font-size: $font-size-sm;
+
+    &:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        box-shadow: $shadow-md;
+    }
+}
+
+.add-rule-form {
+    padding: $spacing-md;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    margin-bottom: $spacing-md;
+    @include fade-in;
+}
+
+.form-group {
+    margin-bottom: $spacing-md;
+
+    label {
+        display: block;
+        margin-bottom: $spacing-xs;
+        font-size: $font-size-sm;
+        font-weight: 500;
+        color: $text-secondary;
+    }
+
+    input,
+    select {
+        width: 100%;
+    }
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $spacing-md;
+}
+
+.rules-list {
+    flex: 1;
+    overflow-y: auto;
+    @include custom-scrollbar;
+}
+
+.rule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-md;
+    margin-bottom: $spacing-sm;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    transition: $transition-smooth;
+
+    &.disabled {
+        opacity: 0.5;
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: $border-color-hover;
+    }
+}
+
+.rule-info {
+    flex: 1;
+}
+
+.rule-header {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-xs;
+
+    .rule-name {
+        font-weight: 600;
+        color: $text-primary;
+    }
+
+    .rule-badge {
+        padding: 2px $spacing-sm;
+        border-radius: $radius-full;
+        font-size: 12px;
+        font-weight: 500;
+
+        &.severity-info {
+            background: rgba(59, 130, 246, 0.2);
+            color: $accent-info;
+        }
+
+        &.severity-warning {
+            background: rgba(245, 158, 11, 0.2);
+            color: $accent-warning;
+        }
+
+        &.severity-critical {
+            background: rgba(239, 68, 68, 0.2);
+            color: $accent-critical;
+        }
+    }
+}
+
+.rule-details {
+    display: flex;
+    gap: $spacing-md;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+
+    .sensor-type {
+        font-weight: 500;
+    }
+
+    .condition {
+        color: $text-muted;
+    }
+}
+
+.rule-actions {
+    display: flex;
+    gap: $spacing-sm;
+}
+
+.btn-toggle {
+    padding: $spacing-xs $spacing-md;
+    border-radius: $radius-md;
+    font-size: $font-size-sm;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    color: $text-muted;
+    border: 1px solid $border-color;
+
+    &.active {
+        background: rgba(16, 185, 129, 0.2);
+        color: $accent-success-solid;
+        border-color: $accent-success-solid;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.btn-delete {
+    padding: $spacing-xs $spacing-sm;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: $radius-md;
+    font-size: $font-size-lg;
+
+    &:hover {
+        background: rgba(239, 68, 68, 0.2);
+        transform: scale(1.1);
+    }
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-2xl;
+    text-align: center;
+    color: $text-muted;
+
+    .empty-icon {
+        font-size: 48px;
+        margin-top: $spacing-md;
+        opacity: 0.3;
+    }
+
+    p {
+        margin: 0;
+    }
+}
