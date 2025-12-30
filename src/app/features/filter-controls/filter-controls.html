@@ -1,0 +1,19 @@
+<div class="filter-controls glass-card">
+    <div class="filter-group">
+        <label>Sensor Type</label>
+        <select [(ngModel)]="selectedSensorType" (change)="onFilterChange()" class="filter-select">
+            <option *ngFor="let type of sensorTypes" [value]="type.value">
+                {{ type.label }}
+            </option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <label>Time Range</label>
+        <select [(ngModel)]="selectedTimeRange" (change)="onFilterChange()" class="filter-select">
+            <option *ngFor="let range of timeRanges" [value]="range.value">
+                {{ range.label }}
+            </option>
+        </select>
+    </div>
+</div>

@@ -1,0 +1,161 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+// Reset and base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: $font-family;
+    font-size: $font-size-base;
+    color: $text-primary;
+    background: $bg-darker;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(135deg, $bg-darker 0%, $bg-dark 100%);
+    background-attachment: fixed;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: $spacing-md;
+}
+
+h1 {
+    font-size: $font-size-2xl;
+}
+
+h2 {
+    font-size: $font-size-xl;
+}
+
+h3 {
+    font-size: $font-size-lg;
+}
+
+p {
+    line-height: 1.6;
+    margin-bottom: $spacing-md;
+}
+
+// Utility classes
+.glass-card {
+    @include glass-card;
+}
+
+.gradient-text-primary {
+    @include gradient-text($accent-primary);
+}
+
+.gradient-text-secondary {
+    @include gradient-text($accent-secondary);
+}
+
+.text-secondary {
+    color: $text-secondary;
+}
+
+.text-muted {
+    color: $text-muted;
+}
+
+// Button base styles
+button {
+    font-family: $font-family;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: $transition-smooth;
+
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}
+
+// Input base styles
+input,
+select,
+textarea {
+    font-family: $font-family;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid $border-color;
+    border-radius: $radius-md;
+    color: $text-primary;
+    padding: $spacing-sm $spacing-md;
+    transition: $transition-smooth;
+
+    &:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    &::placeholder {
+        color: $text-muted;
+    }
+}
+
+// Scrollbar
+* {
+    @include custom-scrollbar;
+}
+
+// Alert severity colors
+.alert-info {
+    color: $accent-info;
+    border-color: $accent-info;
+}
+
+.alert-warning {
+    color: $accent-warning;
+    border-color: $accent-warning;
+}
+
+.alert-critical {
+    color: $accent-critical;
+    border-color: $accent-critical;
+}
+
+// Animation classes
+.fade-in {
+    @include fade-in;
+}
+
+.slide-in-right {
+    @include slide-in-right;
+}
+
+// Loading spinner
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: $text-primary;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
