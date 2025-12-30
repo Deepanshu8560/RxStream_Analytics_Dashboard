@@ -38,6 +38,20 @@
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
+
+        // Style dropdown options for visibility
+        option {
+            background-color: #1a1d2e;
+            color: #e2e8f0;
+            padding: $spacing-sm;
+
+            &:hover,
+            &:focus,
+            &:checked {
+                background-color: #667eea;
+                color: #ffffff;
+            }
+        }
     }
 }
 
