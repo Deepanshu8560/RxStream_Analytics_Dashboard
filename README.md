@@ -231,4 +231,3 @@ This project is for educational and demonstration purposes.
 
 **Status**: ✅ Production Ready
 
-For detailed documentation, see [walkthrough.md](file:///C:/Users/deepa/.gemini/antigravity/brain/9ce37515-1c51-4fd7-9217-c6aad4dadbcc/walkthrough.md)
